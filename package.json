@@ -1,0 +1,20 @@
+{
+  "name": "ordinario_api",
+  "version": "1.0.0",
+  "description": "Aqui se encuentra mi proyecto Ordinario eel cual consiste en una API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.9",
+    "nodemon": "^3.1.2"
+  }
+}
