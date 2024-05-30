@@ -16,7 +16,7 @@ async function registrar(nombre, email, password) {
 async function obtenerPorNombre(nombre) {
     const conexion = await obtenerConexion();
     try {
-        const [results] = await conexion.query('SELECT * FROM Usuarios WHERE nombre = ?', [nombre]);
+        const [results] = await conexion.query('SELECT * FROM usuarios WHERE nombre = ?', [nombre]);
         return results[0];
     } catch (error) {
         console.error('Error al obtener usuario por nombre en el modelo:', error);
