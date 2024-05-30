@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes/usuariosRoute'); // Importa el enrutador correcto
-const usuariosController = require('./controllers/usuariosController');
+const routes = require('./routes/routes'); // Importa el enrutador correcto
 
 //Configura DotEnv
 const dotenv = require('dotenv');
@@ -18,16 +17,8 @@ app.get('/', (req, res) => {
     res.send('¡Hola, mundo!');
 });
 
-// Ruta para registrar usuario
-app.post('/api/registrar', usuariosController.registrarUsuario);
-
-
 // Puerto en el que escucha el servidor
 const port = process.env.PORT || 3002;
 app.listen(port, () => {
     console.log(`Servidor iniciado en http://localhost:${port}/`);
 });
- //$2b$10$jGe9OwYHF00b8QyZa9WK.eBmW5rr4R0nuecalHGfWkcwC/iGd.kya
- /*{
-    "dataSegura": "zzz,zz@gmail.com,$2b$10$jGe9OwYHF00b8QyZa9WK.eBmW5rr4R0nuecalHGfWkcwC/iGd.kya"
-}*/

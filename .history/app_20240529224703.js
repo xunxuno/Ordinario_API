@@ -27,7 +27,3 @@ const port = process.env.PORT || 3002;
 app.listen(port, () => {
     console.log(`Servidor iniciado en http://localhost:${port}/`);
 });
- //$2b$10$jGe9OwYHF00b8QyZa9WK.eBmW5rr4R0nuecalHGfWkcwC/iGd.kya
- /*{
-    "dataSegura": "zzz,zz@gmail.com,$2b$10$jGe9OwYHF00b8QyZa9WK.eBmW5rr4R0nuecalHGfWkcwC/iGd.kya"
-}*/

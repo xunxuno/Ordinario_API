@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes/usuariosRoute'); // Importa el enrutador correcto
+const routes = require('./routes/routes');
+const dotenv = require('dotenv');
 const usuariosController = require('./controllers/usuariosController');
 
 //Configura DotEnv
-const dotenv = require('dotenv');
 dotenv.config();
 
 // Middleware para parsear JSON
@@ -18,8 +18,18 @@ app.get('/', (req, res) => {
     res.send('¡Hola, mundo!');
 });
 
-// Ruta para registrar usuario
-app.post('/api/registrar', usuariosController.registrarUsuario);
+// Ruta para registrar un usuario
+router.post('/registrar', autenticador.verificarToken, usuariosController.registrarUsuario);
+
+// Ruta para iniciar sesión
+router.post('/login', autenticador.verificarToken, usuariosController.loginUsuario);
+
+// Ruta de ejemplo
+app.get('/api/saludo', (req, res) => {
+    res.json({ mensaje: 'Hola desde la API' });
+});
+
+
 
 
 // Puerto en el que escucha el servidor
@@ -27,7 +37,3 @@ const port = process.env.PORT || 3002;
 app.listen(port, () => {
     console.log(`Servidor iniciado en http://localhost:${port}/`);
 });
- //$2b$10$jGe9OwYHF00b8QyZa9WK.eBmW5rr4R0nuecalHGfWkcwC/iGd.kya
- /*{
-    "dataSegura": "zzz,zz@gmail.com,$2b$10$jGe9OwYHF00b8QyZa9WK.eBmW5rr4R0nuecalHGfWkcwC/iGd.kya"
-}*/
