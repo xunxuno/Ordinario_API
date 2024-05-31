@@ -16,7 +16,7 @@ async function registrarUsuario(req, res) {
         res.status(500).send('Error interno del servidor');
     }
 }
-
+}
 
 
 async function loginUsuario(req, res) {

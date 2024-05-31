@@ -4,19 +4,31 @@ const autenticador = require('../middlewares/autenticador');
 async function registrarUsuario(req, res) {
     const { dataSegura } = req.body;
     try {
-        // Verificar que dataSegura contiene las propiedades necesarias
-        if (!dataSegura.nombre || !dataSegura.email || !dataSegura.password) {
+        // Procesar dataSegura directamente
+        console.log("DataSegura recibida:", dataSegura); // Para depuración
+
+        // Separar dataSegura en partes
+        let partes = dataSegura.split(',');
+
+        // Verificar que partes tiene la longitud esperada
+        if (partes.length < 3) {
             throw new Error('Formato de dataSegura incorrecto');
         }
 
-        await usuariosService.registrar(dataSegura.nombre, dataSegura.email, dataSegura.password);
+        // Asignar los datos correspondientes
+        let datos = {
+            nombre: partes[0],
+            email: partes[1],
+            password: partes.slice(2).join(',')
+        };
+
+        await usuariosService.registrar(datos.nombre, datos.email, datos.password);
         res.status(201).send('Usuario registrado correctamente');
     } catch (error) {
         console.error('Error al registrar usuario:', error);
         res.status(500).send('Error interno del servidor');
     }
 }
-
 
 
 async function loginUsuario(req, res) {
