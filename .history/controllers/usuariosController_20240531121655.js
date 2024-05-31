@@ -42,7 +42,6 @@ async function loginUsuario(req, res) {
             return res.status(404).send('Contraseña incorrecta');
         } else {
             console.log('Contraseña correcta, generando token');
-            console.log('JWT_SECRET:', process.env.JWT_SECRET);
             const token = jwt.sign(
                 { id: usuario._id, nombre: usuario.nombre },
                 process.env.JWT_SECRET,

@@ -1,7 +1,5 @@
 const usuariosService = require('../services/usuariosService');
 const autenticador = require('../middlewares/autenticador');
-const jwt = require('jsonwebtoken');
-
 
 async function registrarUsuario(req, res) {
     const { dataSegura } = req.body;
@@ -42,7 +40,6 @@ async function loginUsuario(req, res) {
             return res.status(404).send('Contraseña incorrecta');
         } else {
             console.log('Contraseña correcta, generando token');
-            console.log('JWT_SECRET:', process.env.JWT_SECRET);
             const token = jwt.sign(
                 { id: usuario._id, nombre: usuario.nombre },
                 process.env.JWT_SECRET,
@@ -65,10 +62,9 @@ async function _obtenerUsuarioPorNombre(nombre) {
         return usuario;
     } catch (error) {
         console.error('Error al obtener usuario por nombre:', error);
-        throw error; // Lanzar el error para que pueda ser capturado en loginUsuario
+        return error;
     }
 }
-
 
 module.exports = {
     registrarUsuario,
