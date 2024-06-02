@@ -9,6 +9,17 @@ CREATE TABLE IF NOT EXISTS Usuarios (
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-SELECT * FROM Usuarios;
+CREATE TABLE IF NOT EXISTS Viajes (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    destino VARCHAR(30) NOT NULL,
+    fly VARCHAR(30) NOT NULL,
+    cantidad_boletos INT NOT NULL,
+    fecha_vuelo DATE NOT NULL,
+    hotel VARCHAR(50) NOT NULL,
+    noches_hospedaje INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id),
+    INDEX (id_usuario)
+);
 
-insert into Usuarios (id, nombre, email, password_hash) values ('3','jaja','123','123');
+SELECT * FROM Usuarios ORDER BY id DESC;
