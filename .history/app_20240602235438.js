@@ -28,7 +28,7 @@ app.post('/api/registrar', usuariosController.registrarUsuario);
 app.post('/api/login', usuariosController.loginUsuario);
 
 //Ruta para vuelos
-app.post('/api/registrarVuelo', vuelosController.registrarVuelo);
+app.post('api/registrarVuelo', vuelosController.registrarVuelo);
 
 
 // Puerto en el que escucha el servidor

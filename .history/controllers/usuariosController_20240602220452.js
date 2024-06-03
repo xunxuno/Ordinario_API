@@ -44,13 +44,11 @@ async function loginUsuario(req, res) {
             console.log('Contraseña correcta, generando token');
             console.log('JWT_SECRET:', process.env.JWT_SECRET);
             const token = jwt.sign(
-                { id: usuario.id, nombre: usuario.nombre },
+                { id: usuario._id, nombre: usuario.nombre },
                 process.env.JWT_SECRET,
                 { expiresIn: '1h' }
             );
-            console.log('Retornando token y userId:', { token, userId: usuario.id }); // Añadir log
-            return res.status(200).json({ token, userId: usuario.id });
-
+            return res.status(200).json({ token, userId: usuario._id  });
         }
 
     } catch (error) {

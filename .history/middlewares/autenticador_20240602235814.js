@@ -40,6 +40,20 @@ async function comparePassword(passwordString, bdHash) {
     return compareHashes;
 }
 
+function obtenerUserIdDesdeCookie(req) {
+    const token = req.cookies.token;
 
+    if (!token) {
+        return null;
+    }
 
-module.exports = { verificarToken, verificarDatos, comparePassword };
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        return decoded.id;
+    } catch (error) {
+        console.error('Error al verificar el token:', error);
+        return null;
+    }
+}
+
+module.exports = { verificarToken, verificarDatos, comparePassword, obtenerUserIdDesdeCookie };
