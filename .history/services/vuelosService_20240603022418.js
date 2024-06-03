@@ -11,10 +11,9 @@ async function registrar(userId, destino, fly, cantidad, flightPrice, date, hote
 
 async function obtenerPorIdUsuario(userId) {
     try {
-        const historial = await vuelosModel.obtenerPorIdUsuario(userId); // Utilizar el modelo para obtener el historial de vuelos por userId
-        return historial; // Devolver el historial obtenido
+        return await vuelosModel.obtenerPorIdUsuario(userId);
     } catch (error) {
-        console.error('Error al obtener el historial de vuelos en el servicio:', error);
+        console.error('Error al obtener el vuelo por id en el servicio:', error);
         throw error;
     }
 }

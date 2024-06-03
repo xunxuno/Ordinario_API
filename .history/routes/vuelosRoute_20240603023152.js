@@ -6,7 +6,7 @@ const autenticador = require('../middlewares/autenticador');
 // Ruta para registrar un vuelo
 router.post('/registrarVuelo', vuelosController.registrarVuelo);
 
-router.get('/historial/:userId', vuelosController.historialVuelos);
+router.get('historial', vuelosController._obtenerPorIdUsuario);
 
 
 module.exports = router;

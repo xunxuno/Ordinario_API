@@ -29,7 +29,7 @@ app.post('/api/login', usuariosController.loginUsuario);
 
 //Ruta para vuelos
 app.post('/api/registrarVuelo', vuelosController.registrarVuelo);
-app.get('/api/historial/:userId', vuelosController.historialVuelos);
+app.get('/api/historial', vuelosController._obtenerPorIdUsuario);
 
 
 // Puerto en el que escucha el servidor

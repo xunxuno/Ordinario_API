@@ -14,33 +14,30 @@ async function registrarVuelo(req, res) {
     }
 }
 
-
 async function historialVuelos(req, res){
-    const userId = req.params.userId; // Se espera que el userId venga como parámetro en la URL
-
+    const {dataViaje} = req.body;
     try {
-        const historial = await _obtenerHistorialVuelos(userId);
-        res.status(200).json(historial); // Devolver el historial de vuelos en formato JSON
+        const historial = await _obtenerPorIdUsuario(dataViaje.userId);
+        res.status(201).send('historial obtenido');
+        return historial;
     } catch (error) {
-        console.error('Error al buscar el historial:', error);
-        res.status(500).json({ error: 'Error interno del servidor' }); // Devolver un error 500 en caso de fallo
+        console.log('Error al buscar el historial:', error);
+        return res.status(500).send('Error interno del servidor');
     }
 }
 
-async function _obtenerHistorialVuelos(userId) {
+async function _obtenerPorIdUsuario(userId) {
     try {
-        const historial = await vuelosService.obtenerPorIdUsuario(userId); // Utilizar el servicio para obtener el historial de vuelos
-        return historial; // Devolver el historial obtenido
+        const vueloUser = await vuelosService.obtenerPorIdUsuario(userId);
+        return vueloUser;
     } catch (error) {
-        console.error('Error al obtener el historial de vuelos:', error);
+        console.log('Error al obtener el vuelo por id:', error);
         throw error;
     }
 }
 
-
-
 module.exports = {
     registrarVuelo,
-    _obtenerHistorialVuelos,
+    _obtenerPorIdUsuario,
     historialVuelos
 };
