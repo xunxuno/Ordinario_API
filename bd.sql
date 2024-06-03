@@ -13,13 +13,27 @@ CREATE TABLE IF NOT EXISTS Viajes (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     id_usuario INT NOT NULL,
     destino VARCHAR(30) NOT NULL,
-    fly VARCHAR(30) NOT NULL,
+    vuelo VARCHAR(30) NOT NULL,
     cantidad_boletos INT NOT NULL,
+    precio_vuelo INT NOT NULL,
     fecha_vuelo DATE NOT NULL,
     hotel VARCHAR(50) NOT NULL,
     noches_hospedaje INT NOT NULL,
+    precio_hotel INT NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES Usuarios(id),
     INDEX (id_usuario)
 );
 
+CREATE TABLE IF NOT EXISTS detalles_viaje(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+	id_viaje INT NOT NULL,
+    
+);
+
 SELECT * FROM Usuarios ORDER BY id DESC;
+SELECT * FROM Viajes ORDER BY id DESC;
+
+INSERT INTO Viajes (id_usuario, destino, vuelo, cantidad_boletos, precio_vuelo, fecha_vuelo, hotel, noches_hospedaje, precio_hotel) 
+VALUES (2, 'bar', 'turistaSuperior', 1, 700, '2024-06-18', 'Catalonia Park Guell', 1, 1600);
+
