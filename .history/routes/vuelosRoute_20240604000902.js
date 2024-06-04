@@ -10,7 +10,7 @@ router.post('/registrarVuelo', vuelosController.registrarVuelo);
 router.get('/historial/:userId', vuelosController.historialVuelos);
 
 router.post('/equipaje', vuelosController.registrarEquipaje);
-router.get('/equipajeHistorial/:id_vuelo', vuelosController._obtenerEquipaje);
+router.get('/equipaje/:vueloId', vuelosController._obtenerEquipaje);
 
 
 module.exports = router;

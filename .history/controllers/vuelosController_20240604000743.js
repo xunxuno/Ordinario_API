@@ -78,6 +78,5 @@ module.exports = {
     _obtenerHistorialVuelos,
     historialVuelos,
     registrarEquipaje,
-    _obtenerEquipaje,
-    equipaje
+    _obtenerEquipaje
 };

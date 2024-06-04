@@ -63,6 +63,8 @@ async function equipaje(req, res) {
 }
 
 async function _obtenerEquipaje(vueloId) {
+    vueloId = isNaN(vueloId) ? vueloId : Number(vueloId); // Convertir a número si es posible
+
     try {
         const equipaje = await vuelosService.obtenerPorIdVuelo(vueloId);
         return equipaje;
@@ -71,7 +73,6 @@ async function _obtenerEquipaje(vueloId) {
         throw error;
     }
 }
-
 
 module.exports = {
     registrarVuelo,

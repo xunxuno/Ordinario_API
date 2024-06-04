@@ -50,21 +50,9 @@ async function _obtenerHistorialVuelos(userId) {
     }
 }
 
-async function equipaje(req, res) {
-    const vueloId = req.params.vueloId;
-    try {
-        const historialEquipaje = await _obtenerEquipaje(vueloId);
-        res.status(200).json(historialEquipaje);
-        console.log('equipaje enviado');
-    } catch (error) {
-        console.error('Error al buscar el equipaje:', error);
-        res.status(500).json({ error: 'Error interno del servidor' }); // Devolver un error 500 en caso de fallo
-    }
-}
-
 async function _obtenerEquipaje(vueloId) {
     try {
-        const equipaje = await vuelosService.obtenerPorIdVuelo(vueloId);
+        const equipaje = await vuelosService.obtenerPorIdVuelo(vueloId):
         return equipaje;
     } catch (error) {
         console.error('Error al obtener el equipaje del vuelo:', error);
@@ -77,7 +65,5 @@ module.exports = {
     registrarVuelo,
     _obtenerHistorialVuelos,
     historialVuelos,
-    registrarEquipaje,
-    _obtenerEquipaje,
-    equipaje
+    registrarEquipaje
 };

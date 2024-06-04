@@ -53,7 +53,7 @@ async function _obtenerHistorialVuelos(userId) {
 async function equipaje(req, res) {
     const vueloId = req.params.vueloId;
     try {
-        const historialEquipaje = await _obtenerEquipaje(vueloId);
+        const historialEquipaje = await _obtenerEquipaje(id_vuelo);
         res.status(200).json(historialEquipaje);
         console.log('equipaje enviado');
     } catch (error) {
@@ -62,9 +62,9 @@ async function equipaje(req, res) {
     }
 }
 
-async function _obtenerEquipaje(vueloId) {
+async function _obtenerEquipaje(id_vuelo) {
     try {
-        const equipaje = await vuelosService.obtenerPorIdVuelo(vueloId);
+        const equipaje = await vuelosService.obtenerPorIdVuelo(id_vuelo);
         return equipaje;
     } catch (error) {
         console.error('Error al obtener el equipaje del vuelo:', error);

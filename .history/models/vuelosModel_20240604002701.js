@@ -39,14 +39,18 @@ async function obtenerPorIdUsuario(userId) {
     }
 }
 
-async function obtenerPorIdVuelo(vueloId){
+async function obtenerPorIdVuelo(id_vuelo) {
+    if (typeof id_vuelo !== 'number' && typeof id_vuelo !== 'string') {
+        throw new Error('El id_vuelo debe ser un número o una cadena de texto');
+    }
+
     const conexion = await obtenerConexion();
     try {
-        const [results] = await conexion.query('SELECT * FROM equipaje WHERE id_vuelo  = ? ORDER BY id DESC', [vueloId]);
-        console.log(results);
-        return results;
+        console.log('id_vuelo:', id_vuelo);  // Registro de depuración
+        const [vueloResults] = await conexion.query('SELECT * FROM equipaje WHERE id_vuelo = ? ORDER BY id DESC', [id_vuelo]);
+        return vueloResults;
     } catch (error) {
-        console.error('Error al obtener el viaje por el id', error);
+        console.error('Error al obtener el equipaje por id de vuelo:', error);
         throw error;
     } finally {
         conexion.release();

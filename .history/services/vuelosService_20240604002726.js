@@ -28,11 +28,11 @@ async function obtenerPorIdUsuario(userId) {
     }
 }
 
-async function obtenerPorIdVuelo(vueloId) {
+async function obtenerPorIdVuelo(id_vuelo) {
     try {
-        const equipajeList = await vuelosModel.obtenerPorIdVuelo(vueloId);
+        const equipajeList = await vuelosModel.obtenerPorIdVuelo(id_vuelo);
         console.log(equipajeList); // Mueve el log aquí
-        return equipajeList;
+        return equipajList;
     } catch (error) {
         console.error('Error al obtener el equipaje en el servicio:', error);
         throw error;

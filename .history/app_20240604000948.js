@@ -31,7 +31,7 @@ app.post('/api/login', usuariosController.loginUsuario);
 app.post('/api/registrarVuelo', vuelosController.registrarVuelo);
 app.get('/api/historial/:userId', vuelosController.historialVuelos);
 app.post('/api/equipaje', vuelosController.registrarEquipaje);
-app.get('/api/equipajeHistorial/:vueloId', vuelosController.equipaje);
+app.get('/api/equipaje/:vueloId', vuelosController._obtenerEquipaje);
 
 
 // Puerto en el que escucha el servidor

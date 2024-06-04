@@ -62,9 +62,9 @@ async function equipaje(req, res) {
     }
 }
 
-async function _obtenerEquipaje(vueloId) {
+async function _obtenerEquipaje(id_vuelo) {
     try {
-        const equipaje = await vuelosService.obtenerPorIdVuelo(vueloId);
+        const equipaje = await vuelosService.obtenerPorIdVuelo(id_vuelo);
         return equipaje;
     } catch (error) {
         console.error('Error al obtener el equipaje del vuelo:', error);
