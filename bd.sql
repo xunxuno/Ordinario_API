@@ -35,12 +35,10 @@ CREATE TABLE IF NOT EXISTS ubicaciones(
 CREATE TABLE IF NOT EXISTS actividades (
 	id INT PRIMARY KEY AUTO_INCREMENT,
     id_ubicacion INT NOT NULL,
-    id_usuario INT NOT NULL,
     id_vuelo INT NOT NULL,
     FOREIGN KEY (id_ubicacion) REFERENCES ubicaciones(id),
-    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id),
     FOREIGN KEY (id_vuelo) REFERENCES Viajes(id),
-    INDEX (id_usuario)
+    INDEX (id_vuelo)
 );
 
 CREATE TABLE IF NOT EXISTS equipaje (
@@ -71,6 +69,10 @@ SELECT * FROM Viajes ORDER BY id DESC;
 SELECT * FROM actividades;
 SELECT * FROM ubicaciones;
 SELECT * FROM equipaje;
+SELECT * FROM equipaje WHERE id_vuelo  = 1 ORDER BY id DESC;
+SELECT * FROM gastos WHERE id_vuelo  = 1 ORDER BY id DESC;
+SELECT * FROM actividades WHERE id_vuelo  = 1 ORDER BY id DESC;
+
 
 
 
@@ -223,3 +225,7 @@ INSERT INTO ubicaciones (
     'Basílica de la Sagrada Família',  
     800
 );
+
+
+-- fwqw 
+
