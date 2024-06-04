@@ -150,7 +150,14 @@ async function obtenerResumenVuelo(req, res) {
       const actividades = await _obtenerActividad(vueloId);
   
       const resumen = {
-        vuelo: vuelo,
+        userId: vuelo.userId,
+        destino: vuelo.destino,
+        fechaVuelo: vuelo.fechaVuelo,
+        compañíaAérea: vuelo.compañíaAérea,
+        precioVuelo: vuelo.precioVuelo,
+        hotel: vuelo.hotel,
+        noches: vuelo.noches,
+        precioHotel: vuelo.precioHotel,
         equipaje: equipaje,
         gastos: gastos,
         actividades: actividades

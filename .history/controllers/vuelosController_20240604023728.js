@@ -144,19 +144,26 @@ async function actividades(req, res) {
 async function obtenerResumenVuelo(req, res) {
     const vueloId = req.params.vueloId;
     try {
-      const vuelo = await _obtenerHistorialVuelos(vueloId);
+      const vuelo = await vuelosService.obtenerPorIdVuelo(vueloId);
       const equipaje = await _obtenerEquipaje(vueloId);
       const gastos = await _obtenerGasto(vueloId);
       const actividades = await _obtenerActividad(vueloId);
   
       const resumen = {
-        vuelo: vuelo,
+        userId: vuelo.userId,
+        destino: vuelo.destino,
+        fechaVuelo: vuelo.fechaVuelo,
+        compañíaAérea: vuelo.compañíaAérea,
+        precioVuelo: vuelo.precioVuelo,
+        hotel: vuelo.hotel,
+        noches: vuelo.noches,
+        precioHotel: vuelo.precioHotel,
         equipaje: equipaje,
         gastos: gastos,
         actividades: actividades
       };
   
-      res.status(200).json(resumen);
+      return resumen;
     } catch (error) {
       throw error;
     }

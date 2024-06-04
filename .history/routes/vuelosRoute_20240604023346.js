@@ -18,7 +18,7 @@ router.get('/gastos-historial', vuelosController.gastos);
 router.post('/registrar-actividad', vuelosController.registrarActividad);
 router.get('/historial-actividad', vuelosController.actividades);
 
-router.get('/resumen/', vuelosController.obtenerResumenVuelo);
+router.get('/resumen/:id_vuelo', vuelosController.obtenerResumenVuelo);
 
 
 module.exports = router;
