@@ -69,9 +69,12 @@ SELECT * FROM Viajes ORDER BY id DESC;
 SELECT * FROM actividades;
 SELECT * FROM ubicaciones;
 SELECT * FROM equipaje;
-SELECT * FROM equipaje WHERE id_vuelo  = 1 ORDER BY id DESC;
+SELECT * FROM gastos;
+SELECT * FROM Viajes WHERE id_usuario  = 1 ORDER BY id DESC;
 SELECT * FROM gastos WHERE id_vuelo  = 1 ORDER BY id DESC;
 SELECT * FROM actividades WHERE id_vuelo  = 1 ORDER BY id DESC;
+SELECT id FROM Viajes WHERE id_vuelo  = 1;
+SELECT ubicacion_de_interes, costo_transporte FROM ubicaciones WHERE id = 1;
 
 
 
