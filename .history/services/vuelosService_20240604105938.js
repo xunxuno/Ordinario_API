@@ -100,9 +100,9 @@ async function obtenerUbicacionPorHotel(hotel) {
     }
 }
 
-async function obtenerUbicacionPorid(Id) {
+async function obtenerUbicacionPorid(id) {
     try {
-        const idList = await vuelosModel.obtenerUbicacionPorid(Id);
+        const idList = await vuelosModel.obtenerUbicacionPorid(id);
         console.log(idList); // Mueve el log aquí
         return idList;
     } catch (error) {
@@ -121,6 +121,5 @@ module.exports = {
     registrarActividad,
     obtenerActividadPorIdVuelo,
     obtenerUbicacionPorHotel,
-    obtenerPorId,
-    obtenerUbicacionPorid
+    obtenerPorId
 };

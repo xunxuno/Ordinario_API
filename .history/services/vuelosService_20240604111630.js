@@ -100,9 +100,9 @@ async function obtenerUbicacionPorHotel(hotel) {
     }
 }
 
-async function obtenerUbicacionPorid(Id) {
+async function obtenerUbicacionPorid(usId) {
     try {
-        const idList = await vuelosModel.obtenerUbicacionPorid(Id);
+        const idList = await vuelosModel.obtenerUbicacionPorid(usId);
         console.log(idList); // Mueve el log aquí
         return idList;
     } catch (error) {

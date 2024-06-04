@@ -133,10 +133,10 @@ async function obtenerUbicacionPorHotel(hotel){
     }
 }
 
-async function obtenerUbicacionPorid(Id){
+async function obtenerUbicacionPorid(usId){
     const conexion = await obtenerConexion();
     try {
-        const [iresults] = await conexion.query('SELECT * FROM ubicaciones WHERE id = ?', [Id]);
+        const [iresults] = await conexion.query('SELECT * FROM ubicaciones WHERE id = ?', [usId]);
         console.log(iresults);
         return iresults;
     } catch (error) {

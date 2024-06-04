@@ -20,7 +20,7 @@ router.get('/historial-actividad', vuelosController.actividades);
 
 router.get('/ubicaciones', vuelosController.obtenerUbicacionPorHotel);
 
-router.get('/ubicacionesid/', vuelosController.obtenerUbicacionPorid);
+router.get('/ubicacionesid:Id', vuelosController.obtenerUbicacionPorid);
 
 router.get('/resumen/', vuelosController.obtenerResumenVuelo);
 

@@ -195,9 +195,9 @@ async function obtenerResumenVuelo(req, res) {
 }
 
 async function obtenerUbicacionPorid(req, res) {
-    const Id = req.params.id;
+    const id = req.params.id;
     try {
-        const idslist = await _obtenerUbicacionPorid(Id);
+        const idslist = await _obtenerUbicacionPorid(id);
         res.status(200).json(idslist);
         console.log('Ubicaciones enviado');
     } catch (error) {
@@ -206,9 +206,9 @@ async function obtenerUbicacionPorid(req, res) {
     }
 }
 
-  async function _obtenerUbicacionPorid(Id) {
+  async function _obtenerUbicacionPorid(id) {
     try {
-        const ubid = await vuelosService.obtenerUbicacionPorid(Id);
+        const ubid = await vuelosService.obtenerUbicacionPorid(id);
         return ubid;
     } catch (error) {
         console.error('Error al obtener la ubicacion:', error);

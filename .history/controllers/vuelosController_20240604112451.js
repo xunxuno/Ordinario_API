@@ -195,7 +195,7 @@ async function obtenerResumenVuelo(req, res) {
 }
 
 async function obtenerUbicacionPorid(req, res) {
-    const Id = req.params.id;
+    const Id = req.params.Id;
     try {
         const idslist = await _obtenerUbicacionPorid(Id);
         res.status(200).json(idslist);

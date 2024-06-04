@@ -206,9 +206,9 @@ async function obtenerUbicacionPorid(req, res) {
     }
 }
 
-  async function _obtenerUbicacionPorid(Id) {
+  async function _obtenerUbicacionPorid(usId) {
     try {
-        const ubid = await vuelosService.obtenerUbicacionPorid(Id);
+        const ubid = await vuelosService.obtenerUbicacionPorid(usId);
         return ubid;
     } catch (error) {
         console.error('Error al obtener la ubicacion:', error);

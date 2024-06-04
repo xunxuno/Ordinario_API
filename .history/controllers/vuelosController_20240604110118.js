@@ -194,11 +194,11 @@ async function obtenerResumenVuelo(req, res) {
     }
 }
 
-async function obtenerUbicacionPorid(req, res) {
-    const Id = req.params.id;
+async function obtenerUbicacionPorHotel(req, res) {
+    const ubi = req.params.hotel;
     try {
-        const idslist = await _obtenerUbicacionPorid(Id);
-        res.status(200).json(idslist);
+        const ubilist = await _obtenerUbicacionPorHotel(ubi);
+        res.status(200).json(ubilist);
         console.log('Ubicaciones enviado');
     } catch (error) {
         console.error('Error al buscar las Ubicaciones:', error);
@@ -206,9 +206,9 @@ async function obtenerUbicacionPorid(req, res) {
     }
 }
 
-  async function _obtenerUbicacionPorid(Id) {
+  async function _obtenerUbicacionPorid(id) {
     try {
-        const ubid = await vuelosService.obtenerUbicacionPorid(Id);
+        const ubid = await vuelosService.obtenerUbicacionPorid(id);
         return ubid;
     } catch (error) {
         console.error('Error al obtener la ubicacion:', error);
@@ -216,6 +216,7 @@ async function obtenerUbicacionPorid(req, res) {
     }
 }
 
+obtenerUbicacionPorid
 
 module.exports = {
     registrarVuelo,
@@ -233,7 +234,5 @@ module.exports = {
     obtenerResumenVuelo,
     _obtenerUbicacionPorHotel,
     obtenerUbicacionPorHotel,
-    _obtenerPorId,
-    _obtenerUbicacionPorid,
-    obtenerUbicacionPorid
+    _obtenerPorId
 };

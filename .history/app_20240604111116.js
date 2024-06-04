@@ -38,11 +38,10 @@ app.post('/api/registrar-actividad', vuelosController.registrarActividad);
 app.get('/api/historial-actividad/:vueloId', vuelosController.actividades);
 app.get('/api/ubicaciones/:hotel', vuelosController.obtenerUbicacionPorHotel);
 
-
+app.get('/api/ubicacionesid/:ubicacionesId', vuelosController.obtenerUbicacionPorid);
 
 app.get('/api/resumen/:vueloId', vuelosController.obtenerResumenVuelo);
 
-app.get('/api/ubicacionesid/:Id', vuelosController.obtenerUbicacionPorid);
 
 // Puerto en el que escucha el servidor
 const port = process.env.PORT || 3002;
