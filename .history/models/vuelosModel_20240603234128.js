@@ -42,7 +42,7 @@ async function obtenerPorIdUsuario(userId) {
 async function obtenerPorIdVuelo(vueloId){
     const conexion = await obtenerConexion();
     try {
-        const [vueloResults] = await conexion.query('SELECT * FROM equipaje WHERE id = ? ORDER BY id DESC', [vueloId]);
+        const [vueloResults] = await conexion.query('SELECT * FROM Viajes WHERE id = ? ORDER BY id DESC', [vueloId]);
         return vueloResults;
     } catch (error) {
         console.error('Error al obtener el viaje por el id', error);

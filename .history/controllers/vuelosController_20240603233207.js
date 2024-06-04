@@ -55,6 +55,5 @@ async function _obtenerHistorialVuelos(userId) {
 module.exports = {
     registrarVuelo,
     _obtenerHistorialVuelos,
-    historialVuelos,
-    registrarEquipaje
+    historialVuelos
 };

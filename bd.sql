@@ -43,6 +43,28 @@ CREATE TABLE IF NOT EXISTS actividades (
     INDEX (id_usuario)
 );
 
+CREATE TABLE IF NOT EXISTS equipaje (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    id_vuelo INT NOT NULL,
+    elemento VARCHAR(100),
+    cantidad INT,
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id),
+    FOREIGN KEY (id_vuelo) REFERENCES Viajes(id),
+    INDEX (id_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS gastos (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT NOT NULL,
+    id_vuelo INT NOT NULL,
+    concepto VARCHAR(100),
+    precio INT,
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id),
+    FOREIGN KEY (id_vuelo) REFERENCES Viajes(id),
+    INDEX (id_usuario)
+);
+
 -- SELECTS para comprobar registros
 SELECT * FROM Usuarios ORDER BY id DESC;
 SELECT * FROM Viajes ORDER BY id DESC;

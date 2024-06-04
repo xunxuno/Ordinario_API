@@ -30,6 +30,5 @@ async function obtenerPorIdUsuario(userId) {
 
 module.exports = {
     registrar,
-    obtenerPorIdUsuario,
-    registrarEquipaje
+    obtenerPorIdUsuario
 };

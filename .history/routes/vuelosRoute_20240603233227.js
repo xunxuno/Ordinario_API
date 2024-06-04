@@ -8,7 +8,7 @@ router.post('/registrarVuelo', vuelosController.registrarVuelo);
 
 router.get('/historial/:userId', vuelosController.historialVuelos);
 
-router.post('/equipaje', vuelosController.registrarEquipaje);
+router.post('/equipaje/:vueloId', vuelosController.registrarEquipaje);
 
 
 module.exports = router;

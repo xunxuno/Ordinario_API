@@ -16,7 +16,7 @@ async function registrarVuelo(userId, destino, fly, cantidad, flightPrice, date,
 async function registrarEquipaje(userId, id_vuelo, elemento, cantidad){
     const conexion = await obtenerConexion();
     try {
-        await conexion.query('INSERT INTO equipaje (id_usuario, id_vuelo, elemento, cantidad) VALUES (?, ?, ?, ?)', [userId, id_vuelo, elemento, cantidad]);
+        await conexion.query('INSERT INTO viajes (id_usuario, id_vuelo, elemento, cantidad) VALUES (?, ?, ?, ?)', [userId, id_vuelo, elemento, cantidad]);
         console.log('Equipaje insertado correctamente en la base de datos');
     }catch (error) {
         console.error('Error al insertar el equipaje en el modelo:', error);
@@ -42,7 +42,7 @@ async function obtenerPorIdUsuario(userId) {
 async function obtenerPorIdVuelo(vueloId){
     const conexion = await obtenerConexion();
     try {
-        const [vueloResults] = await conexion.query('SELECT * FROM equipaje WHERE id = ? ORDER BY id DESC', [vueloId]);
+        const [vueloResults] = await conexion.query('SELECT * FROM Viajes WHERE id = ? ORDER BY id DESC', [vueloId]);
         return vueloResults;
     } catch (error) {
         console.error('Error al obtener el viaje por el id', error);
@@ -55,6 +55,5 @@ async function obtenerPorIdVuelo(vueloId){
 module.exports = {
     registrarVuelo,
     obtenerPorIdUsuario,
-    obtenerPorIdVuelo,
-    registrarEquipaje
+    obtenerPorIdVuelo
 };
