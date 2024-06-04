@@ -18,8 +18,6 @@ router.get('/gastos-historial', vuelosController.gastos);
 router.post('/registrar-actividad', vuelosController.registrarActividad);
 router.get('/historial-actividad', vuelosController.actividades);
 
-router.get('/ubicaciones', vuelosController.obtenerUbicacionPorHotel);
-
 router.get('/resumen/', vuelosController.obtenerResumenVuelo);
 
 

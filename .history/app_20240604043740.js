@@ -36,7 +36,6 @@ app.post('/api/registrar-gasto', vuelosController.registrarGastos);
 app.get('/api/gastos-historial/:vueloId', vuelosController.gastos);
 app.post('/api/registrar-actividad', vuelosController.registrarActividad);
 app.get('/api/historial-actividad/:vueloId', vuelosController.actividades);
-app.get('/api/ubicaciones/:hotel', vuelosController.obtenerUbicacionPorHotel);
 
 
 

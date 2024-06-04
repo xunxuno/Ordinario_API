@@ -177,7 +177,7 @@ async function obtenerResumenVuelo(req, res) {
   async function _obtenerUbicacionPorHotel(hotel) {
     try {
         const ubi = await vuelosService. obtenerUbicacionPorHotel(hotel);
-        return ubi;
+        return activiubidad;
     } catch (error) {
         console.error('Error al obtener la ubicacion:', error);
         throw error;

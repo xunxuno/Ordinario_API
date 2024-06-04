@@ -107,19 +107,6 @@ async function obtenerActividadPorIdVuelo(vueloId){
     }
 }
 
-async function obtenerUbicacionPorHotel(hotel){
-    const conexion = await obtenerConexion();
-    try {
-        const [hresults] = await conexion.query('SELECT * FROM ubicaciones WHERE hotel  = ?', [hotel]);
-        console.log(hresults);
-        return hresults;
-    } catch (error) {
-        console.error('Error al obtener la ubicacion por el hotel', error);
-        throw error;
-    } finally {
-        conexion.release();
-    }
-}
 
 
 module.exports = {
@@ -129,7 +116,5 @@ module.exports = {
     registrarEquipaje,
     registrarGastos,
     obtenerGastoPorIdVuelo,
-    registrarActividad,
-    obtenerActividadPorIdVuelo,
-    obtenerUbicacionPorHotel
+    registrarActividad
 };

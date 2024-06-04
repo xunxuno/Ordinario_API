@@ -165,7 +165,7 @@ async function obtenerResumenVuelo(req, res) {
   async function obtenerUbicacionPorHotel(req, res) {
     const ubi = req.params.hotel;
     try {
-        const ubilist = await _obtenerUbicacionPorHotel(ubi);
+        const ubilist = await _obtenerUbicacionPorHotel(hotel);
         res.status(200).json(ubilist);
         console.log('Ubicaciones enviado');
     } catch (error) {
@@ -177,7 +177,7 @@ async function obtenerResumenVuelo(req, res) {
   async function _obtenerUbicacionPorHotel(hotel) {
     try {
         const ubi = await vuelosService. obtenerUbicacionPorHotel(hotel);
-        return ubi;
+        return activiubidad;
     } catch (error) {
         console.error('Error al obtener la ubicacion:', error);
         throw error;
