@@ -70,6 +70,7 @@ SELECT * FROM Usuarios ORDER BY id DESC;
 SELECT * FROM Viajes ORDER BY id DESC;
 SELECT * FROM actividades;
 SELECT * FROM ubicaciones;
+SELECT * FROM equipaje;
 
 
 
