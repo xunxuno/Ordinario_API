@@ -114,6 +114,5 @@ module.exports = {
     _obtenerEquipaje,
     equipaje,
     registrarGastos,
-    _obtenerGasto,
-    gastos
+    _obtenerGasto
 };

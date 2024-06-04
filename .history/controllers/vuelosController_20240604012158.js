@@ -94,18 +94,6 @@ async function _obtenerGasto(vueloId) {
     }
 }
 
-async function gastos(req, res) {
-    const vueloId = req.params.vueloId;
-    try {
-        const historialGastos = await _obtenerGasto(vueloId);
-        res.status(200).json(historialGastos);
-        console.log('historial de gastos enviado');
-    } catch (error) {
-        console.error('Error al buscar los gastos:', error);
-        res.status(500).json({ error: 'Error interno del servidor' }); // Devolver un error 500 en caso de fallo
-    }
-}
-
 module.exports = {
     registrarVuelo,
     _obtenerHistorialVuelos,
@@ -114,6 +102,5 @@ module.exports = {
     _obtenerEquipaje,
     equipaje,
     registrarGastos,
-    _obtenerGasto,
-    gastos
+    _obtenerGasto
 };

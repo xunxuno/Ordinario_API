@@ -65,6 +65,5 @@ module.exports = {
     obtenerPorIdUsuario,
     registrarEquipaje,
     obtenerPorIdVuelo,
-    registrarGastos,
-    obtenerGastoPorIdVuelo
+    registrarGastos
 };

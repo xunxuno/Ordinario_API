@@ -33,7 +33,7 @@ app.get('/api/historial/:userId', vuelosController.historialVuelos);
 app.post('/api/equipaje', vuelosController.registrarEquipaje);
 app.get('/api/equipajeHistorial/:vueloId', vuelosController.equipaje);
 app.post('/api/registrar-gasto', vuelosController.registrarGastos);
-app.get('/api/gastos-historial/:vueloId', vuelosController.gastos);
+app.get('/api/gastos-historial', vuelosController.gastos);
 
 
 // Puerto en el que escucha el servidor
