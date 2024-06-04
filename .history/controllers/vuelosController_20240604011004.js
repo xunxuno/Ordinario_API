@@ -91,6 +91,5 @@ module.exports = {
     historialVuelos,
     registrarEquipaje,
     _obtenerEquipaje,
-    equipaje,
-    registrarGastos
+    equipaje
 };

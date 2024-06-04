@@ -72,6 +72,18 @@ async function _obtenerEquipaje(vueloId) {
     }
 }
 
+async function registrarEquipaje(req, res){
+    const {dataEquipaje} = req.body;
+    try {
+        await vuelosService.registrarEquipaje(dataEquipaje.userId, dataEquipaje.id_vuelo, dataEquipaje.elemento, dataEquipaje.cantidad);
+        res.status(201).send('Equipaje registrado correctamenete');
+    } catch (error) {
+        console.log(dataEquipaje);
+        console.error('Error al registrar equipaje:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+}
+
 async function registrarGastos(req,res){
     const {dataGasto} = req.body;
     try {
@@ -91,6 +103,5 @@ module.exports = {
     historialVuelos,
     registrarEquipaje,
     _obtenerEquipaje,
-    equipaje,
-    registrarGastos
+    equipaje
 };

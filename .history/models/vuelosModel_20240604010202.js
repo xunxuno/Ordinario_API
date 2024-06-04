@@ -27,9 +27,8 @@ async function registrarEquipaje(userId, id_vuelo, elemento, cantidad){
 }
 
 async function registrarGastos(userId, vueloId, concepto, precio) {
-    const conexion = await obtenerConexion();
     try {
-        await conexion.query('INSERT INTO gastos (id_usuario, id_vuelo, concepto, precio) VALUES (?, ?, ?, ?)', [userId, vueloId, concepto, precio]);
+        await conexion.query('INSERT INTO equipaje (id_usuario, id_vuelo, concepto, precio) VALUES (?, ?, ?, ?)', [userId, vueloId, concepto, precio]);
         console.log('Gasto registrado con exito');
     }catch (error) {
         console.error('Error al insertar el gasto en el modelo:', error);
@@ -70,6 +69,5 @@ module.exports = {
     registrarVuelo,
     obtenerPorIdUsuario,
     obtenerPorIdVuelo,
-    registrarEquipaje,
-    registrarGastos
+    registrarEquipaje
 };
