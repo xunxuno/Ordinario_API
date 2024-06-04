@@ -49,16 +49,6 @@ async function _obtenerHistorialVuelos(userId) {
         throw error;
     }
 }
-async function _obtenerPorId(Id) {
-    try {
-        const historial = await vuelosService.obtenerPorId(Id); // Utilizar el servicio para obtener el historial de vuelos
-        return historial; // Devolver el historial obtenido
-    } catch (error) {
-        console.error('Error al obtener el historial de vuelos:', error);
-        throw error;
-    }
-}
-
 
 async function equipaje(req, res) {
     const vueloId = req.params.vueloId;
@@ -153,8 +143,9 @@ async function actividades(req, res) {
 // prueba de resumen
 async function obtenerResumenVuelo(req, res) {
     const vueloId = req.params.vueloId;
+    const userId = req.params.userId
     try {
-      const vuelo = await _obtenerPorId(vueloId);
+      const vuelo = await _obtenerHistorialVuelos(userId);
       const equipaje = await _obtenerEquipaje(vueloId);
       const gastos = await _obtenerGasto(vueloId);
       const actividades = await _obtenerActividad(vueloId);
@@ -210,6 +201,5 @@ module.exports = {
     actividades,
     obtenerResumenVuelo,
     _obtenerUbicacionPorHotel,
-    obtenerUbicacionPorHotel,
-    _obtenerPorId
+    obtenerUbicacionPorHotel
 };

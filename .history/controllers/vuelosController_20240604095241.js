@@ -153,8 +153,9 @@ async function actividades(req, res) {
 // prueba de resumen
 async function obtenerResumenVuelo(req, res) {
     const vueloId = req.params.vueloId;
+    const userId = req.params.userId
     try {
-      const vuelo = await _obtenerPorId(vueloId);
+      const vuelo = await _obtenerHistorialVuelos(userId);
       const equipaje = await _obtenerEquipaje(vueloId);
       const gastos = await _obtenerGasto(vueloId);
       const actividades = await _obtenerActividad(vueloId);

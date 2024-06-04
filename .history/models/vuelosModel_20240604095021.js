@@ -143,6 +143,5 @@ module.exports = {
     obtenerGastoPorIdVuelo,
     registrarActividad,
     obtenerActividadPorIdVuelo,
-    obtenerUbicacionPorHotel,
-    obtenerPorId
+    obtenerUbicacionPorHotel
 };
